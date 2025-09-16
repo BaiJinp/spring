@@ -157,6 +157,7 @@ public abstract class AbstractTransactionStatus implements TransactionStatus {
 
 	/**
 	 * Release the savepoint that is held for the transaction.
+	 * 释放持有的保存点
 	 */
 	public void releaseHeldSavepoint() throws TransactionException {
 		Object savepoint = getSavepoint();
@@ -223,6 +224,11 @@ public abstract class AbstractTransactionStatus implements TransactionStatus {
 
 	/**
 	 * This implementation is empty, considering flush as a no-op.
+	 * 1.数据同步：将缓存中的更改强制写入数据库
+	 * 2.早期验证：提前发现约束违规等数据库错误
+	 * 3.内存管理：释放持久化上下文中的缓存
+	 * 比如在jpa中使用就是强行同步到数据库 @see JpaTransactionObject#flush()
+	 *
 	 */
 	@Override
 	public void flush() {

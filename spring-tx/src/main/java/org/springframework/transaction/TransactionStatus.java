@@ -58,6 +58,9 @@ public interface TransactionStatus extends TransactionExecution, SavepointManage
 	 * transaction manager does not have a flush concept. A flush signal may
 	 * get applied to the primary resource or to transaction synchronizations,
 	 * depending on the underlying resource.
+	 * 需要与多种资源（如文件系统、数据库连接池、消息队列等）打交道。这些资源通常都有自己的缓冲机制。
+	 * Flushable 接口提供了一个统一的契约，无论底层是什么资源，只要它实现了这个接口，
+	 * 你就可以通过调用 flush() 方法来确保数据被持久化
 	 */
 	@Override
 	void flush();

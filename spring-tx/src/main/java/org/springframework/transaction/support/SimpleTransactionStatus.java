@@ -27,7 +27,7 @@ package org.springframework.transaction.support;
  * manager implementations and as a static mock for testing transactional
  * code (either as part of a mock {@code PlatformTransactionManager} or
  * as argument passed into a {@link TransactionCallback} to be tested).
- *
+ * 简单实现 主要用于测试
  * @author Juergen Hoeller
  * @since 1.2.3
  * @see TransactionCallback#doInTransaction

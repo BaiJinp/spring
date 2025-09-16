@@ -22,6 +22,7 @@ import org.springframework.transaction.SavepointManager;
 import org.springframework.util.Assert;
 
 /**
+ * 默认实现，内部使用
  * Default implementation of the {@link org.springframework.transaction.TransactionStatus}
  * interface, used by {@link AbstractPlatformTransactionManager}. Based on the concept
  * of an underlying "transaction object".
@@ -60,7 +61,7 @@ public class DefaultTransactionStatus extends AbstractTransactionStatus {
 	private final boolean readOnly;
 
 	private final boolean debug;
-
+    //支持事务挂起以及恢复
 	@Nullable
 	private final Object suspendedResources;
 
